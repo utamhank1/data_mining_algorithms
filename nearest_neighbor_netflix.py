@@ -13,6 +13,7 @@ import pickle
 from itertools import combinations
 
 
+
 # Helper function to compute the jaccard distance of two users.
 def jaccard(col1, col2):
     return (col1 ^ col2).sum() / (col1 | col2).sum()
@@ -26,7 +27,7 @@ def jaccard_filter(pair, table):
 
 
 # Minhashing algorithm to help detect user similarity.
-def createbuckets(b, r, signature_matrix):
+def createbuckets(b, r, signature_matrix, arr_cols):
     array_buckets = []
     for i in range(b):
         array_buckets.append(dict())
@@ -83,7 +84,7 @@ def main():
     # Number of buckets and number of rows for minhashing algorithm.
     b = 50
     r = 10
-    buckets = createbuckets(b, r, signature_matrix)
+    buckets = createbuckets(b, r, signature_matrix, arr_cols)
 
     # for every row value in the dictionary keys, we compute 500 hash functions for that vector.This 500 x 1 vector is
     # then compared to the vectors of the infinite signature matrix with column values in the list of the dictionary
