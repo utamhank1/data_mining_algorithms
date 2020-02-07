@@ -7,11 +7,9 @@
 # Import libraries
 import numpy as np
 import random
-from scipy import sparse
 import matplotlib.pyplot as plt
 import pickle
 from itertools import combinations
-
 
 
 # Helper function to compute the jaccard distance of two users.
@@ -97,7 +95,6 @@ def main():
             for j in list(comb):
                 pair_set.add(j)
     len(pair_set)
-
 
     # Generate Plots to figure out optimal value of m
     m = 500
